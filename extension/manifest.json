@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "E-Commerce Review Analyzer",
+    "version": "1.0.0",
+    "description": "Analyzes e-commerce product reviews.",
+    "content_scripts": [
+      {
+        "matches": [
+          "*://www.amazon.in/*",
+          "*://www.amazon.com/*"
+        ],
+        "js": ["content.js"],
+        "css": ["style.css"],
+        "run_at": "document_idle"
+      }
+    ]
+  }
