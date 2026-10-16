@@ -1,23 +1,32 @@
+
+/* E-Commerce Review Analyzer — Professional UI */
+
 #era-panel {
     position: fixed;
     top: 20px;
     right: 20px;
-    width: 360px;
-    max-height: 90vh;
+    width: 370px;
+    max-width: calc(100vw - 32px);
+    max-height: calc(100vh - 40px);
     overflow-y: auto;
     background: #ffffff;
-    color: #222222;
-    border: 1px solid #cccccc;
-    border-radius: 12px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    color: #1e293b;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.22);
     z-index: 2147483647;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    transition: max-height 0.2s ease;
+    font-family: Inter, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    transition: max-height 0.2s ease, box-shadow 0.2s ease;
+}
+
+#era-panel * {
+    box-sizing: border-box;
 }
 
 #era-panel.era-minimized {
-    max-height: 56px;
+    max-height: 60px;
     overflow: hidden;
 }
 
@@ -25,40 +34,44 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
-    background: #111827;
-    color: white;
-    border-radius: 12px 12px 0 0;
+    gap: 12px;
+    padding: 16px;
+    background: #0f172a;
+    color: #ffffff;
+    border-radius: 15px 15px 0 0;
     cursor: move;
     user-select: none;
 }
 
 .era-header h2 {
     margin: 0;
-    font-size: 18px;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
 }
 
 .era-header-actions {
     display: flex;
-    gap: 8px;
+    gap: 5px;
+    flex-shrink: 0;
 }
 
 .era-header-actions button {
-    background: transparent;
-    color: white;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-    width: 28px;
-    height: 28px;
-    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #ffffff;
+    font-size: 17px;
+    cursor: pointer;
 }
 
 .era-header-actions button:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: #334155;
 }
 
 #era-close {
@@ -66,192 +79,243 @@
 }
 
 .era-content {
-    padding: 15px;
+    padding: 16px;
 }
 
 .era-content h3 {
-    margin: 15px 0 6px;
-    font-size: 14px;
+    margin: 18px 0 8px;
+    color: #0f172a;
+    font-size: 13px;
+    font-weight: 700;
 }
 
-.era-content p {
-    margin: 5px 0;
-    line-height: 1.5;
+#era-product {
+    color: #334155;
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
 }
 
-/* Summary stat grid */
+#era-rating {
+    color: #b45309;
+    font-weight: 700;
+}
+
+/* Analytics summary cards */
+
 .era-summary-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 8px;
-    margin: 12px 0;
+    margin: 14px 0;
 }
 
 .era-stat {
-    background: #f5f5f5;
-    border: 1px solid #dddddd;
-    border-radius: 8px;
-    padding: 10px 6px;
+    min-width: 0;
+    padding: 13px 5px;
     text-align: center;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
 }
 
 .era-stat span {
     display: block;
-    font-size: 18px;
-    font-weight: 700;
-    color: #111827;
+    color: #0f172a;
+    font-size: 22px;
+    font-weight: 750;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
 }
 
 .era-stat label {
     display: block;
-    font-size: 11px;
-    color: #666666;
-    margin-top: 2px;
+    margin-top: 5px;
+    color: #64748b;
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
-    letter-spacing: 0.03em;
 }
 
-/* Filter bar */
+/* Review filters */
+
 #era-filter-bar {
     display: flex;
-    gap: 6px;
-    margin: 8px 0 12px;
     flex-wrap: wrap;
+    gap: 6px;
+    margin: 10px 0 14px;
 }
 
 .era-filter-btn {
-    background: #f0f0f0;
-    border: 1px solid #dddddd;
+    padding: 7px 12px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
     border-radius: 20px;
-    padding: 5px 12px;
-    font-size: 12px;
+    color: #475569;
+    font-size: 11px;
+    font-weight: 600;
     cursor: pointer;
-    color: #333333;
+    transition: background 0.15s, color 0.15s;
 }
 
 .era-filter-btn:hover {
-    background: #e5e5e5;
+    background: #e2e8f0;
 }
 
 .era-filter-btn.active {
-    background: #111827;
-    color: white;
-    border-color: #111827;
+    background: #0f172a;
+    border-color: #0f172a;
+    color: #ffffff;
 }
 
-/* Review cards */
+/* Individual review cards */
+
 .era-review {
     margin-top: 10px;
-    padding: 10px;
-    background: #f5f5f5;
-    border-radius: 8px;
-    border: 1px solid #dddddd;
+    padding: 13px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow-wrap: anywhere;
+    transition: box-shadow 0.15s;
+}
+
+.era-review:hover {
+    box-shadow: 0 3px 12px rgba(15, 23, 42, 0.06);
 }
 
 .era-review.era-flagged {
-    border-color: #e0a300;
-    background: #fff8e6;
+    background: #fffbeb;
+    border-color: #f5cc66;
 }
 
 .era-review strong {
-    display: block;
-    margin-bottom: 5px;
+    display: inline;
+    margin-bottom: 0;
+    color: #334155;
 }
 
 .era-review p {
-    font-size: 13px;
-}
-
-.era-review-title {
-    font-weight: 600;
-    font-size: 13px;
-    margin-top: 2px !important;
+    margin: 7px 0;
+    color: #475569;
+    font-size: 12px;
+    line-height: 1.6;
 }
 
 .era-review-meta {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 6px;
+    gap: 7px;
+    margin-bottom: 10px;
 }
 
 .era-review-meta strong {
-    margin-bottom: 0;
+    color: #0f172a;
+    font-size: 12px;
 }
 
-/* Badges */
+.era-review-title {
+    margin-top: 4px !important;
+    color: #0f172a !important;
+    font-size: 13px !important;
+    font-weight: 700;
+}
+
+/* Sentiment and verification badges */
+
 .era-badge {
-    font-size: 10px;
-    padding: 2px 8px;
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
     border-radius: 20px;
-    font-weight: 600;
-    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 700;
     letter-spacing: 0.02em;
+    text-transform: uppercase;
 }
 
+.era-sentiment-positive,
 .era-verified {
-    background: #e6f4ea;
-    color: #1e7d34;
-    border: 1px solid #b7ddc0;
-}
-
-.era-unverified {
-    background: #f0f0f0;
-    color: #666666;
-    border: 1px solid #dddddd;
-}
-
-.era-sentiment-positive {
-    background: #e6f4ea;
-    color: #1e7d34;
-    border: 1px solid #b7ddc0;
+    background: #dcfce7;
+    border: 1px solid #bbf7d0;
+    color: #166534;
 }
 
 .era-sentiment-negative {
-    background: #fbe9e7;
-    color: #b3261e;
-    border: 1px solid #f2c2bd;
+    background: #fee2e2;
+    border: 1px solid #fecaca;
+    color: #991b1b;
 }
 
-.era-sentiment-neutral {
-    background: #eeeeee;
-    color: #555555;
-    border: 1px solid #dddddd;
+.era-sentiment-neutral,
+.era-unverified {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    color: #475569;
 }
 
 .era-flags {
-    font-size: 12px;
-    color: #9a6700;
-    margin-top: 6px !important;
-    font-style: italic;
+    padding: 8px;
+    background: #fef3c7;
+    border-radius: 7px;
+    color: #92400e !important;
+    font-size: 11px !important;
 }
 
-/* Export button */
+/* Export action */
+
 #era-export {
     display: block;
     width: 100%;
-    margin-top: 15px;
-    padding: 10px;
-    background: #111827;
-    color: white;
-    border: none;
-    border-radius: 8px;
+    margin-top: 16px;
+    padding: 12px;
+    background: #0f172a;
+    border: 1px solid #0f172a;
+    border-radius: 10px;
+    color: #ffffff;
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
+    transition: background 0.15s, transform 0.15s;
 }
 
 #era-export:hover {
-    background: #1f2937;
+    background: #1e293b;
 }
 
-/* Scrollbar polish */
+#era-export:active {
+    transform: scale(0.99);
+}
+
+/* Scrollbar */
+
 #era-panel::-webkit-scrollbar {
     width: 6px;
 }
 
 #era-panel::-webkit-scrollbar-thumb {
-    background: #cccccc;
-    border-radius: 3px;
+    background: #cbd5e1;
+    border-radius: 6px;
+}
+
+#era-panel::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Small screens */
+
+@media (max-width: 450px) {
+    #era-panel {
+        top: 8px;
+        right: 8px;
+        width: calc(100vw - 16px);
+        max-height: calc(100vh - 16px);
+    }
+
+    .era-content {
+        padding: 12px;
+    }
 }
