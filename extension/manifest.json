@@ -1,17 +1,28 @@
 {
-    "manifest_version": 3,
-    "name": "E-Commerce Review Analyzer",
-    "version": "1.0.0",
-    "description": "Analyzes e-commerce product reviews.",
-    "content_scripts": [
-      {
-        "matches": [
-          "*://www.amazon.in/*",
-          "*://www.amazon.com/*"
-        ],
-        "js": ["content.js"],
-        "css": ["style.css"],
-        "run_at": "document_idle"
-      }
-    ]
-  }
+  "manifest_version": 3,
+  "name": "E-Commerce Review Analyzer",
+  "version": "1.0.0",
+  "description": "Automatically collects accessible Amazon reviews and analyzes sentiment using a local ML model.",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://www.amazon.in/*",
+    "http://127.0.0.1:5000/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.amazon.in/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
